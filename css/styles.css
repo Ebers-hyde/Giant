@@ -239,6 +239,9 @@ body {
 }
 .header .banner .banner__button {
   margin-top: 26px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .mob-nav-collapsed {

@@ -216,6 +216,9 @@ body{
         .banner__button {
             margin-top: 26px;
             @extend %tplbutton;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
     }
 }
