@@ -1,0 +1,915 @@
+%tplgradient {
+    background: linear-gradient(to right, #fd712c, #f21780);
+}
+
+%tplbutton {
+    height: 35px;
+    padding: 0 30px;
+    border: 0px;
+    border-radius: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+@mixin list($cl) {
+        list-style-type: none;
+        margin-bottom: 1em;
+        color: $cl;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+}
+
+@mixin dosisFont($fs, $fw) {
+    font-family: 'Dosis', sans-serif;
+    font-weight: $fw;
+    font-size: $fs;
+}
+
+@mixin robotoFont ($fs, $fw) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: $fw;
+    font-size: $fs;
+}
+
+
+.contentContainer {
+    padding: 0 20%;
+    @media screen and (max-width: 768px) {
+        padding: 0 10%;
+    }
+}
+
+body{
+    font-size: 14px;
+}
+
+.header {
+    min-height: 800px;
+    width: 100%;
+    @extend %tplgradient;
+    @media screen and (max-width: 1280px) {
+        min-height: 610px;
+  }
+  @media screen and (max-width: 768px) {
+    min-height: 680px;
+}
+    .header__bgr{
+        position: absolute;
+        width: 50%;
+        right: 0;
+        top: 15%;
+        @media screen and (max-width: 1280px) {
+            width: 40%;
+            top: 30%;
+      }
+      @media screen and (max-width: 768px) {
+        top: 25%;
+        width: 45%;
+    }
+    @media screen and (max-width: 450px) {
+        top: 27%;
+    }
+    }
+    .navbar {
+        min-height: 90px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 80px;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 100px;
+      }
+        .navbar__brandInfo {
+            display: flex;
+            padding: 30px 0;
+            img {
+                margin-right: 5px;
+                @media screen and (max-width: 450px) {
+                    width: 40px;
+                    height: 36px;
+                }
+            }
+            .navbar__companyName {
+                @include dosisFont(36px, 700);
+                color: white;
+                @media screen and (max-width: 450px) {
+                    font-size: 24px;
+                    padding-top: 5px;
+                }
+            }
+        }
+        .navbar__menu {
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: 768px) {
+                display: none;
+          }
+            .navbar__menuElements{
+                padding: 0;
+                a {
+                text-decoration: none;
+                cursor: pointer;
+                margin-right: 50px;
+                }
+                .navbar__menuElement {
+                display: inline;
+                list-style: none;
+                color: white;
+                @include robotoFont(14px, 400);
+                }
+            }
+            .navbar__dldBtn {
+                @extend %tplbutton;
+                outline: none;
+                cursor: pointer;
+                }
+        }
+        .navbar__mobileNav {
+            display: none;
+            padding-top: 40px;
+            height: 50px;
+            border: none;
+            background: none;
+            outline: none;
+            @media screen and (max-width: 768px) {
+                display: block;
+          }
+            i {
+                font-size: 24px;
+                color: white;
+            }
+            i:active {
+                color: #fd712c;
+            }
+        }
+    }
+    .navbar__mobileMenu {
+        position: absolute;
+        left: 43%;
+        top: 2%;
+        @media screen and (max-width: 450px) {
+            left: 33%;
+            top: 2.5%;
+        }
+        .navbar__mobileMenuElements {
+            list-style-type: none;
+            padding: 0;
+            li {
+                padding: 10px 0;
+                text-align: center;
+                width: 150px;
+            }
+            a {
+                @include robotoFont(18px, 400);
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+            }
+        }
+    }
+    .banner {
+        .banner__text {
+            max-width: 43%;
+            padding-top: 40px;
+            @media screen and (max-width: 1280px) {
+                max-width: 60%;
+                padding-top: 0;
+          }
+          @media screen and (max-width: 450px) {
+            max-width: 100%;
+        }
+          
+        }
+        .banner__heading {
+            @include dosisFont(54px, 600);
+            line-height: 50px;
+            color: white;
+            @media screen and (max-width: 768px) {
+                font-size: 42px;
+            }
+            @media screen and (max-width: 450px) {
+                max-width: 80%;
+                font-size: 32px;
+                line-height: 40px;
+            }
+        }
+        .banner__announcement {
+            @include robotoFont(14px, 300);
+            line-height: 24px;
+            color: white;
+            text-align: justify;
+        }
+        .banner__teasers {
+            padding: 0;
+            .banner__teaser {
+                @include list(white);
+                @media screen and (max-width: 450px) {
+                    text-align: justify;
+                    line-height: 24px;
+                }
+                i {
+                    padding-right: 20px;
+                    font-size: 16px;
+                }
+            }
+        }
+        .banner__button {
+            margin-top: 26px;
+            @extend %tplbutton;
+        }
+    }
+}
+
+.mob-nav-collapsed {
+    display: none;
+}
+
+.features {
+    width: 100%;
+    min-height: 460px;
+    .features__list {
+        padding: 15% 0;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        @media screen and (max-width: 768px) {
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+        }
+        @media screen and (max-width: 450px) {
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr;
+        }
+        .features__feature {
+            display: flex;
+            align-items: center;
+            .features__featureLabel {
+                display: inline-block;
+                height: 72px;
+                width: 72px;
+                border: 1px solid #f4f4f4;
+                border-radius: 100px;
+                margin-right: 20px;
+                text-align: center;
+                @media screen and (max-width: 1280px) {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                }
+                i {
+                    color: #f31f79;
+                    font-size: 24px;
+                    padding-top: 24px;
+                    @media screen and (max-width: 1280px) {
+                        font-size: 20px;
+                        padding-top: 15px;
+                    }
+                }
+            }
+            .features__featureText{
+                max-width: 70%;
+                @media screen and (max-width: 1280px) {
+                    max-width: 75%;
+                }
+            }
+            .features__featureHeading {
+                margin-top: 0.3em;
+                @include dosisFont(24px, 500);
+                @media screen and (max-width: 1280px) {
+                    font-size: 18px;
+              }
+            }
+            .features__featureInfo {
+                @include robotoFont(14px, 400);
+            }
+        }
+    }
+}
+
+.interface {
+    width: 100%;
+    min-height: 700px;
+    @media screen and (max-width: 1280px) {
+        min-height: 500px;
+  }
+    .interface__info{
+        min-height: 590px;
+        @media screen and (max-width: 1280px) {
+            min-height: 390px;
+      }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @media screen and (max-width: 1280px) {
+            grid-template-columns: .5fr 1.5fr;
+      }
+      @media screen and (max-width: 450px) {
+        display: block;
+    }
+        align-items: center;
+        .interface__img {
+            img {
+                height: 540px;
+                @media screen and (max-width: 1280px) {
+                    height: 500px;
+              }
+              @media screen and (max-width: 450px) {
+                height: 250px;
+                margin: 0 0 0 30%;
+            }
+            }
+        }
+        .interface__heading {
+            @include dosisFont(36px, 500);
+        @media screen and (max-width: 1280px) {
+            font-size: 32px;
+            margin-bottom: 20px;
+            }
+            @media screen and (max-width: 768px) {
+                font-size: 26px;
+            }
+            @media screen and (max-width: 450px) {
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+
+        .interface__content {
+            max-width: 95%;
+            @media screen and (max-width: 450px) {
+                max-width: 100%;
+            }
+        }
+        .interface__text1 {
+            @include robotoFont(14px, 400);
+            margin: 0 0 80px 0;
+            @media screen and (max-width: 1280px) {
+                margin: 0 0 40px 0;
+            }
+            @media screen and (max-width: 768px) {
+                margin: 0 0 20px 0;
+            }
+            @media screen and (max-width: 450px) {
+                text-align: justify;
+            }
+        }
+        .interface__text2 {
+            @include robotoFont(14px, 400);
+            margin: 0 0 40px 0;
+            @media screen and (max-width: 1280px) {
+                margin: 0 0 20px 0;
+            }
+            @media screen and (max-width: 450px) {
+                text-align: justify;
+            }
+        }
+        .banner__teasers {
+            padding: 0;
+            .banner__teaser {
+                @include list(black);
+                @media screen and (max-width: 768px) {
+                    line-height: 20px;
+                }
+                i {
+                    padding-right: 20px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+.preslider__text {
+    padding-top: 120px;
+    @media screen and (max-width: 768px) {
+        padding-top: 60px;
+    }
+    @media screen and (max-width: 450px) {
+        padding-top: 30px;
+    }
+    .preslider__heading {
+        @include dosisFont(36px, 500);
+        @media screen and (max-width: 768px) {
+            font-size: 32px;
+        }
+        @media screen and (max-width: 450px) {
+            font-size: 20px;
+        }
+    }
+    .preslider__info {
+        @include robotoFont(14px, 300);
+        line-height: 24px;
+        padding: 0 21%;
+        @media screen and (max-width: 1280px) {
+            padding: 0 10%;
+        }
+        @media screen and (max-width: 768px) {
+            margin-bottom: 30px;
+        }
+        @media screen and (max-width: 450px) {
+            padding: 0;
+        }
+    }
+}
+
+.screenshots {
+    position: relative;
+    width: 100%;
+    min-height: 915px;
+    text-align: center;
+    background-color: #f7fafc;
+    @media screen and (max-width: 1280px) {
+        min-height: 615px;
+    }
+    @media screen and (max-width: 450px) {
+        min-height: 1500px;
+    }
+}
+
+.screenshots__slider {
+    height: 600px;
+    @media screen and (max-width: 1280px) {
+        height: 400px;
+    }
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
+    display: relative;
+    img {
+        width: 350px;
+        @media screen and (max-width: 1280px) {
+            width: 200px;
+        }
+        box-shadow: -3px 15px 15px -4px rgba($color: #000000, $alpha: .2);
+    }
+  }
+
+.screenshots__mobile {
+    img {
+        max-width: 70%;
+        margin: 0 15%;
+    }
+    @media screen and (max-width: 450px) {
+        padding: 0 15%;
+        max-width: 80%;
+    }
+    display: none;
+    @media screen and (max-width: 1000px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 30px;
+    }
+    @media screen and (max-width: 450px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 10px;
+    }
+}
+
+#prev, #next {
+    position: absolute;
+    top: 63%;
+    cursor: pointer;
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
+    height: 40px;
+    width: 40px;
+    background-color: #f7fafc;
+    border: 1px solid #f4f4f4;
+    border-radius: 100px;
+    outline: none;
+}
+
+#prev {
+    left: 15%;
+    @media screen and (max-width: 768px) {
+    left: 5%;
+    }
+
+}
+
+#next {
+    right: 15%;
+    @media screen and (max-width: 768px) {
+    right: 5%;
+    }
+}
+
+#prev:hover, #next:hover {
+    @extend %tplgradient;
+    border: 2px solid #dee1e2;
+    i {
+        color: white;
+    }
+}
+
+.pricing {
+    width: 100%;
+    min-height: 900px;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+        min-height: 1200px;
+    }
+    @media screen and (max-width: 450px) {
+        min-height: 2100px;
+    }
+    .pricing__text {
+        padding-top: 120px;
+        padding-bottom: 90px;
+        @media screen and (max-width: 1280px) {
+            padding-top: 80px;
+        }
+        @media screen and (max-width: 768px) {
+            padding-top: 40px;
+            padding-bottom: 50px;
+        }
+        .pricing__heading {
+            @include dosisFont(36px, 500);
+            @media screen and (max-width: 768px) {
+                font-size: 32px;
+            }
+            @media screen and (max-width: 450px) {
+                font-size: 20px;
+            }
+        }
+        .pricing__info {
+            @include robotoFont(14px, 300);
+            line-height: 24px;
+            padding: 0 21%;
+            @media screen and (max-width: 1280px) {
+                padding: 0 10%;
+            }
+            @media screen and (max-width: 450px) {
+                padding: 0;
+            }
+        }
+    }
+    .pricing__cards {
+        height: 490px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px;
+        @media screen and (max-width: 1280px) {
+        gap: 15px;
+        }
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 60px;
+        }
+        @media screen and (max-width: 450px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            gap: 30px;
+        }
+        .pricing__card{
+            background-color: #f7fafc;
+            .pricing__cardHeading {
+                @include dosisFont(20px, 400);
+                margin:10px;
+            }
+            .pricing__cardPrice {
+                background-color: white;
+                padding-top: 25px;
+                height:120px;
+                clip-path: polygon(0 0, 0 70%, 50% 100%, 100% 70%, 100% 0);
+                @media screen and (max-width: 1280px) {
+                    padding-top: 15px;
+                    height: 100px;
+                }
+                .pricing__cardPrice1 {
+                    vertical-align: top;
+                    @include dosisFont(18px, 500);
+                }
+                .pricing__cardPrice2 {
+                    @include dosisFont(48px, 500);
+                }
+                .pricing__cardPrice3 {
+                    @include dosisFont(18px, 500);
+                }
+            }
+                .pricing__cardFeatures {
+                padding: 20px 0 0 0;
+                @media screen and (max-width: 768px) {
+                    padding: 0 0 0 0;
+                }
+                    .pricing__cardFeature {
+                    list-style-type: none;
+                    padding: 10px 0;
+                    border-bottom: 2px dashed #eee;
+                    @include robotoFont(14px, 300)
+                }
+                :last-child {
+                    border-bottom: none;
+                    margin-bottom: 30px;
+                }
+            }
+            .pricing__cardStart {
+            @include robotoFont(14px, 300);
+            color: #aaa;
+            }
+            .pricing__cardBuy {
+            margin-top: 15px;
+            @extend %tplbutton;
+            background-color: white;
+            border: 2px solid #f4f4f4;
+            cursor: pointer;
+            }
+        }
+    }
+    .active {
+        background-color: white;
+        box-shadow: 0px 3px 9px -3px rgba(85,74,74,0.58);
+        .pricing__cardPrice {
+            @extend %tplgradient;
+            color: white;
+        }
+        .pricing__cardBuy {
+            @extend %tplgradient;
+            border: 2px solid #e5e5e5;
+            color: white;
+        }
+    }
+}
+
+.video {
+    position: relative;
+    .video__preview {
+        position: relative;
+        min-height: 400px;
+        background: url(../img/video_preview.jpg) center center no-repeat;
+        background-color: rgba(0, 0, 0, 0.7);
+        background-blend-mode: darken;
+        @media screen and (max-width: 768px) {
+            min-height: 250px;
+        }
+        @media screen and (max-width: 450px) {
+            min-height: 200px;
+            background-size: 250%;
+        }
+        button {
+            position: absolute;
+            left: calc(50% - 36px);
+            top: calc(50% - 36px);
+            width: 72px;
+            height: 72px;
+            border: 0;
+            border-radius: 100px;
+            @extend %tplgradient;
+            cursor: pointer;
+            @media screen and (max-width: 1280px) {
+                left: calc(50% - 26px);
+                top: calc(50% - 26px);
+                width: 52px;
+                height: 52px;
+            }
+            i {
+                font-size: 24px;
+                color: white;
+            }
+        }
+    }
+}
+
+.feedbacks {
+    position: relative;
+    width: 100%;
+    min-height: 760px;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+        min-height: 610px;
+    }
+    @media screen and (max-width: 450px) {
+        min-height: 510px;
+    }
+}
+
+.feedbacks__slider {
+    margin-top: 90px;
+    .feedbacks__feedback {
+        margin: 0 15px;
+        max-width: 360px;
+        min-height: 270px;
+        text-align: justify;
+        @media screen and (max-width: 768px) {
+            min-height: 200px;
+        }
+        @media screen and (max-width: 450px) {
+            margin: 0 5px;
+        }
+        &.active {
+            box-shadow: 0px 3px 9px -3px rgba(85,74,74,0.58);
+            margin-bottom: 1px;
+        }
+        .feedbacks__feedbackText {
+            padding: 15px;
+            @include robotoFont(14px, 300);
+            @media screen and (max-width: 768px) {
+                font-size: 12px;
+                padding: 5px;
+            }
+        }
+        .feedbacks__client {
+            display: flex;
+            padding: 15px;
+            @media screen and (max-width: 768px) {
+                padding: 5px;
+            }
+            img {
+                @media screen and (max-width: 768px) {
+                    width: 60px;
+                }
+            }
+            .feedbacks__clientContacts{
+                padding-top: 15px;
+                @media screen and (max-width: 768px) {
+                    padding-top: 10px;
+                }
+                padding-left: 10px;
+                h4 {
+                    margin: 0 0 5px 0;
+                    @include dosisFont(18px, 400);
+                    @media screen and (max-width: 768px) {
+                        font-size: 14px;
+                    }
+                }
+                span {
+                    @include robotoFont(14px, 300);
+                    @media screen and (max-width: 768px) {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#prev-feedback, #next-feedback {
+    position: absolute;
+    top: 62%;
+    cursor: pointer;
+    @media screen and (max-width: 1280px) {
+        top: 68%;
+    }
+    @media screen and (max-width: 768px) {
+        top: 63%;
+    }
+    @media screen and (max-width: 450px) {
+        top: 40%;
+    }
+    height: 40px;
+    width: 40px;
+    background-color: #f7fafc;
+    border: 1px solid #f4f4f4;
+    border-radius: 100px;
+    outline: none;
+}
+
+#prev-feedback {
+    left: 15%;
+    @media screen and (max-width: 768px) {
+        left: 3%;
+    }
+    @media screen and (max-width: 450px) {
+        left: 25%;
+    }
+}
+
+#next-feedback {
+    right: 15%;
+    @media screen and (max-width: 768px) {
+        right: 3%;
+    }
+    @media screen and (max-width: 450px) {
+        right: 25%;
+    }
+}
+
+
+#prev-feedback:hover, #next-feedback:hover {
+    @extend %tplgradient;
+    border: 2px solid #dee1e2;
+    i {
+        color: white;
+    }
+}
+
+.download {
+    width: 100%;
+    min-height: 475px;
+    @extend %tplgradient;
+    text-align: center;
+    @media screen and (max-width: 768px) {
+        min-height: 585px;
+    }
+    @media screen and (max-width: 450px) {
+        min-height: 515px;
+    }
+    .download__heading{
+        margin: 0;
+        padding-top: 120px;
+        padding-bottom: 85px;
+        @include dosisFont(36px, 400);
+        color: white;
+        @media screen and (max-width: 768px) {
+            font-size: 32px;
+            padding-top: 60px;
+        }
+        @media screen and (max-width: 450px) {
+            font-size: 20px;
+            padding-top: 40px;
+            padding-bottom: 45px;
+        }
+    }
+    .download__versions {
+        height: 135px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        @media screen and (max-width: 1280px) {
+            height: 115px;
+        }
+        @media screen and (max-width: 768px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+        .download__version {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 3px 9px -3px rgba(85,74,74,0.58);
+            @media screen and (max-width: 768px) {
+                margin: 0 20%;
+                height: 100px;
+            }
+            @media screen and (max-width: 450px) {
+                margin: 0;
+            }
+            .download__versionIcon {
+                width: 30%;
+                @media screen and (max-width: 1280px) {
+                    width: 40%;
+                }
+                @media screen and (max-width: 450px) {
+                    width: 50%;
+                }
+                i {
+                    font-size: 48px;
+                    color: #777777;
+                    text-shadow: 2px 0 2px #dee1e2, 
+                    0 2px 2px #dee1e2, 
+                    -2px 0 2px #dee1e2, 
+                    0 -2px 2px #dee1e2;
+                }
+            }
+            .download__versionText {
+                text-align: left;
+                padding-left: 10%;
+                width: 60%;
+                @media screen and (max-width: 1280px) {
+                    padding-left: 0;
+                }
+                h3 {
+                    @include dosisFont(30px, 600);
+                    margin: 0;
+                }
+                p {
+                    @include robotoFont(14px, 300);
+                    color: #777777;
+                    @media screen and (max-width: 1280px) {
+                        margin: 5px 0;
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    min-height: 175px;
+    background-color: #222;
+    text-align: center;
+    .footer__socialIcons {
+        padding-top: 60px;
+        padding-bottom: 30px;
+        i {
+            font-size: 18px;
+            color: white;
+            margin-right: 25px;
+        }
+        :last-child {
+            margin-right: 0;
+        }
+        i:hover {
+            color: #f31f79;
+            cursor: pointer;
+        }
+    }
+    .footer__copyright {
+        @include robotoFont(14px, 300);
+        color: white;
+    }
+}
